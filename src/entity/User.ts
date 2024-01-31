@@ -5,7 +5,6 @@ import BaseEntity from "./BaseEntity";
 export class User extends BaseEntity {
     @Column({
         type: "varchar",
-        nullable: false,
         length: 70
     })
     firstName?: string;
@@ -19,7 +18,6 @@ export class User extends BaseEntity {
 
     @Column({
         type: "date",
-        nullable: false,
     })
     birthday?: Date;
 
@@ -34,14 +32,44 @@ export class User extends BaseEntity {
         type: "varchar",
         unique: true,
         length: 255,
-        nullable: false,
     })
     email?: string;
 
     @Column({
         type: "varchar",
         length: 255,
-        nullable: false,
     })
     password?: string;
+
+    @Column({
+        type: "varchar",
+        length: 255,
+        nullable: true,
+    })
+    avatarUrl?: string;
+
+    @Column({
+        type: "date",
+        nullable: true,
+    })
+    verifiedEmailAt?: Date;
+
+    @Column({
+        type: "date",
+        nullable: true,
+    })
+    lastLoginAt?: Date;
+
+    @Column({
+        type: "varchar",
+        length: 255,
+        nullable: true,
+    })
+    resetPasswordToken?: string;
+
+    @Column({
+        type: "date",
+        nullable: true,
+    })
+    resetPasswordRequestAt?: Date;
 }
